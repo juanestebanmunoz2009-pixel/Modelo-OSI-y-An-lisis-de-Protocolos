@@ -1,0 +1,30 @@
+4. Transport
+Esta es la capa responsable en las comunicaciones de extremo a extremo entre dos dispositivos.
+Toma los datos de la capa de sesion y los fragmenta seguidamente en varios trozos mas pequeños aun que se les llama segmentos llegando al destino se reensambla estos segmentos para que la capa de sesion pueda procesarlos.
+
+Tambien es responsable sobre el control de flujo (ajusta la velocidad de transmision para que un emisor rapido no abrume a un receptor lento)
+y el contro de errores verifica que los datos lleguen completos y solicita retransmision si faltan partes.
+
+    # Protocolos comunes: TCP, UDP
+
+    # Ataques típicos: SYN floods, port scanning, UDP floods
+
+# Encabezado TCP (simplificado):
+| Source Port     | Destination Port  |
+| Sequence Number                     |
+| Acknowledgment Number               |
+| Flags (SYN, ACK, FIN, RST, PSH)     |
+| Window Size                         |
+| Checksum                            |
+
+# Los flags son cruciales para entender TCP:
+SYN = "Quiero iniciar una conexión"
+ACK = "Reconozco tu mensaje"
+FIN = "Quiero cerrar la conexión"
+RST = "Algo está mal, ¡abortar!"
+PSH = "Envía estos datos inmediatamente"
+
+# Ataques comunes en la Capa 4:
+# SYN Flood - agotar la tabla de conexiones
+# Port Scanning - descubrir servicios abiertos
+# UDP Flood - abrumar con tráfico UDP
