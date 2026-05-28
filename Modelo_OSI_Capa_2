@@ -1,0 +1,42 @@
+2. Data link
+Esta capa es similar a la capa 3 o conocida como (Network/Red) facilita la transferencia de datos entre dos dispositvios en una misma red.
+(No entre redes diferentes). Toma los paquetes de la capa de Red y los divide en partes pequeñas a las cuales se les conoce como Tramas.
+
+Es responsable sobre el control del flujo y el control de los errores en las comunicaciones de una red local.
+
+ 
+     #Protocolos comunes: Ethernet, WiFi (802.11), ARP
+
+     #Ataques típicos: ARP spoofing, MAC flooding, VLAN hopping
+
+
+#Ethernet: Es el estándar para redes cableadas. Define cómo se formatean los datos en tramas (frames) y cómo se transmiten físicamente por el cable.
+
+#WiFi (802.11): Es el equivalente a Ethernet pero diseñado para el medio inalámbrico. Incluye mecanismos de autenticación y cifrado 
+ para asegurar que solo los dispositivos autorizados se conecten.
+
+#ARP (Address Resolution Protocol): Es el protocolo traductor de la red local. Su único trabajo es resolver la pregunta:
+ "Conozco la dirección IP de mi vecino, pero ¿cuál es su dirección MAC para poder enviarle los datos directamente?"
+
+# Ethernet Frame:
+| Preamble | Dest MAC | Source MAC | Type | Data | FCS |
+
+# Formato de dirección MAC:
+00:11:22:33:44:55
+# Primeros 3 bytes = Fabricante (OUI)
+# Últimos 3 bytes = ID único del dispositivo
+
+# ARP (Address Resolution Protocol - Protocolo de Resolución de Direcciones):
+# Mapea direcciones IP a direcciones MAC
+
+# Solicitud ARP (broadcast):
+"¿Quién tiene 192.168.1.1? Avisa a 192.168.1.100"
+
+# Respuesta ARP:
+"192.168.1.1 está en AA:BB:CC:DD:EE:FF"
+
+# ARP SPOOFING - El clásico ataque MITM
+# El atacante envía respuestas ARP falsas
+# "192.168.1.1 (gateway) está en [MAC DEL ATACANTE]"
+# "192.168.1.100 (víctima) está en [MAC DEL ATACANTE]"
+# ¡Todo el tráfico fluye a través del atacante!
