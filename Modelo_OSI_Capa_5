@@ -1,0 +1,25 @@
+5. Session
+Esta capa es responsable de la apertura y cierre de comunicacion entre dos dispositivos. Se encarga de cerrar la conexion si no se ha utilizado por un tiempo.
+Ademas, una sesion puede contener "Puntos de contro" si se pierden los datos, solo se deen enviar los mas recientes y asi ahorramos ancho de banda.
+
+Cabe destacar que las sesiones son únicas, lo que significa que los datos no pueden viajar entre diferentes sesiones, sino solo entre cada sesión.
+
+    #Protocolos comunes: NetBIOS, RPC, SQL sessions
+
+    #Ataques típicos: Session hijacking, session fixation  
+
+
+# La capa de sesión gestiona:
+# - Establecimiento de sesión
+# - Mantenimiento de sesión (keep-alives)
+# - Terminación de sesión
+# - Puntos de control (reanudar transferencias interrumpidas)
+
+# Las sesiones web usan cookies:
+Set-Cookie: session_id=abc123; HttpOnly; Secure
+
+# Session hijacking - si robas la cookie, ERES el usuario
+# El atacante captura el tráfico de red
+# Captura la cookie de sesión
+# Inyecta la cookie en su propio navegador
+# ¡Ahora está logueado como la víctima!
