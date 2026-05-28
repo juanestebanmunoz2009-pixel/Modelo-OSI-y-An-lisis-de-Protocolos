@@ -1,0 +1,37 @@
+1. Physical
+En esta capa se incluye el equipo fisico implicado para la transferencia de datos como los siguentes: Cables,Switches,Ondas de radio. 
+En esta seccion es donde los datos se convierten en una secuencia de Bits (0 y 1)
+
+La capa fisica de ambos dispositivos debe acordar una convencion de señal para distinguir los 1 de los 0. Por ejemplo, los cables de Ethernet
+que conectan dispositivos en esta capa.
+
+
+    # Protocolos/Medios comunes: Cables, ondas de radio, fibra óptica
+
+    # Ataques típicos: Wiretapping, jamming, physical access
+
+
+Nota:
+    "Nunca asumas que la seguridad comienza en la Capa 3. La seguridad física es el 'Cero Absoluto'. Si un atacante tiene acceso físico al cable, 
+     puede usar un tap de red para clonar todo el tráfico sin que el switch o el firewall se enteren (Wiretapping). Si la red es inalámbrica, el Jamming (ruido) puede dejar fuera de servicio una oficina entera en segundos. La seguridad física no es solo 'poner cámaras', es garantizar que el medio de transmisión sea inalterable."
+
+    Wiretapping: La técnica de "pinchar" físicamente un cable para escuchar lo que pasa a través de él.
+
+    Jamming (Interferencia): Saturar el espectro de radiofrecuencia para bloquear las comunicaciones inalámbricas legítimas.
+
+    Acceso Físico: El riesgo definitivo. Si un atacante puede conectar un dispositivo a un puerto Ethernet en un pasillo, 
+    ha pasado por encima de todas las capas de cifrado y firewalls. 
+
+ 
+Cables de Cobre
+
+Cables Ethernet (Cat5e, Cat6). Señales eléctricas a través de pares trenzados de cobre. Vulnerables a interferencias electromagnéticas y escuchas.
+Fibra Óptica
+
+Pulos de luz a través de fibras de vidrio. Extremadamente rápida, inmune a interferencias electromagnéticas, muy difícil de interceptar sin detección.
+Inalámbrico (Radio)
+
+Ondas de radio que viajan por el aire. El más vulnerable: cualquiera dentro del alcance puede capturar las señales. Por eso el cifrado es esencial.
+Cable Coaxial
+
+Tecnología más antigua, aún se usa para internet por cable y algunas LANs. Más resistente a interferencias que los cables de par trenzado.
