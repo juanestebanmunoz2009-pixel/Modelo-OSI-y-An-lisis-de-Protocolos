@@ -1,0 +1,54 @@
+3. Network
+En esta capa nos hacemos responsable de facilitar la transferencia de datos entre dos redes, si los dispositivos estan en la misma red no es necesaria esta capa.
+
+Dividimos los segmentos de la capa de transporte en unidades mas pequeñas llamadas paquetes, tenemos todos dispositivos el dispositivo emisor y los reensambla en el receptor.
+Tambien se busca una buena ruta fisica para que los datos lleguen a su destino y este proceso se le conoce como enrutamiento.
+
+    # Protocolos comunes: IP, ICMP, IPsec
+
+    # Ataques típicos: IP spoofing, ICMP attacks, routing attacks
+
+
+#Protocolos de la Capa 3: Los motores del enrutamiento
+
+    #IP (Internet Protocol): Es el protocolo encargado del direccionamiento lógico. Su función principal es el enrutamiento: 
+     decidir el mejor camino para que un paquete salte de una red a otra hasta llegar a su destino final.
+
+    #ICMP (Internet Control Message Protocol): Es el protocolo de "diagnóstico" y "reporte de errores". No transporta datos de usuario; 
+     transporta mensajes de estado (como "Host inalcanzable" o "Tiempo excedido"). Herramientas como ping y traceroute son sus aplicaciones más famosas.
+
+    #IPsec (Internet Protocol Security): Es el conjunto de protocolos que asegura la comunicación IP mediante autenticación y cifrado.
+     Es la tecnología que hace posibles las VPNs, creando túneles seguros sobre redes inseguras.
+
+
+
+#IP Spoofing: El atacante falsifica la dirección IP de origen en un paquete para hacerse pasar por una máquina de confianza (ej. un servidor interno).
+ Es la base de muchos ataques de denegación de servicio (DoS) y para evadir listas de control de acceso (ACLs).
+
+#Ataques ICMP: * Ping Flood (DDoS): Inundar a la víctima con tantas peticiones Echo Request que el servidor agota sus recursos tratando de responder.
+
+#ICMP Redirect: Un atacante envía un mensaje de "redirección" falso al router de la víctima para que esta envíe su tráfico a través de la máquina del atacante
+ (un tipo de ataque Man-in-the-Middle).
+
+#Routing Attacks (Ataques de enrutamiento): Incluyen el secuestro de rutas BGP (Border Gateway Protocol). Si un atacante convence a los routers globales
+ de que él es el camino más rápido para llegar a google.com, todo el tráfico de internet pasará a través de él.
+
+
+# Encabezado IP (simplificado):
+| Version | Header Length | Type of Service  |
+| Total Length                               |
+| Identification | Flags | Fragment Offset   |
+| TTL | Protocol | Header Checksum           |
+| Source IP Address                          |
+| Destination IP Addresss                    |
+
+# TTL (Time To Live - Tiempo de Vida):
+# Cada router decrementa el TTL en 1
+# Cuando TTL = 0, el paquete se descarta
+# Evita bucles de enrutamiento infinitos
+# ¡Traceroute explota esto!
+
+traceroute google.com
+# Envía paquetes con TTL=1, 2, 3, etc.
+# Cada router devuelve "TTL exceeded"
+# ¡Mapea toda la ruta!
