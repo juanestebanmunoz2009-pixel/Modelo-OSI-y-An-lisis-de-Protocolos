@@ -32,12 +32,12 @@ Las aplicaciones de software cliente no forman parte de esta capa ; mas bien, la
 
 Tenemos protocolos comunes como: FTP,SMTP,SSH,DNS,HTTP y HTTPS
 
-FTP	Transferencia de archivos	  20, 21	Credenciales en texto plano, ataques de fuerza bruta y Login Anónimo.
-SMTP	Envío de correos electrónicos	  25	        Open Relay (envío de spam) y enumeración de usuarios válidos.
-SSH	Administración remota segura	  22	        Fuerza bruta de credenciales y búsqueda de vulnerabilidades en versiones obsoletas.
-DNS	Resolución de nombres de dominio  53	        DNS Cache Poisoning y transferencia de zonas (AXFR) que filtra toda la infraestructura.
-HTTP	Navegación web (no cifrada)	  80	        Interceptación de tráfico (sniffing), ataques XSS y SQL Injection.
-HTTPS	Navegación web (cifrada/SSL)	 443	        SSL Stripping (bajar a HTTP) y fallos en la validación de certificados.
+FTP	Transferencia de archivos	       20, 21	    Credenciales en texto plano, ataques de fuerza bruta y Login Anónimo.
+SMTP	Envío de correos electrónicos	 25	        Open Relay (envío de spam) y enumeración de usuarios válidos.
+SSH	Administración remota segura	   22	        Fuerza bruta de credenciales y búsqueda de vulnerabilidades en versiones obsoletas.
+DNS	Resolución de nombres de dominio 53	        DNS Cache Poisoning y transferencia de zonas (AXFR) que filtra toda la infraestructura.
+HTTP	Navegación web (no cifrada)	   80	        Interceptación de tráfico (sniffing), ataques XSS y SQL Injection.
+HTTPS	Navegación web (cifrada/SSL)	 443	      SSL Stripping (bajar a HTTP) y fallos en la validación de certificados.
 
 Quieres saber por que los atacantes se enfocan en la Capa 7?
 
