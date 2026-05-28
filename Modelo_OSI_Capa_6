@@ -1,0 +1,46 @@
+6.Presentation
+
+Esta es la capa responsable de preparar los datos para que los pueda usar la capa de aplicacion; en otras palabras hace que los datos se preparen para el consumo por las aplicacions. En esta capa se hace la traduccion,el cifrado y la comprension de los datos.
+
+     #Protocolos comunes: SSL/TLS, JPEG, ASCII, encryption
+
+    # Ataques típicos: SSL stripping, encoding attacks, PODDLE
+
+# La Capa 6 se gestiona:
+# - Cifrado/Descifrado (SSL/TLS)
+# - Compresión de datos
+# - Codificación de caracteres (ASCII, UTF-8)
+# - Serialización de datos (JSON, XML)
+
+
+Conceptos clave (El lenguaje de los datos)
+
+Antes de entender cómo los datos se transmiten, hay que entender cómo se "visten" para el viaje:
+
+    ASCII y UTF-8 (Los alfabetos):
+
+        ASCII: Es el abecedario básico de las computadoras. Solo conoce letras inglesas, números y algunos símbolos. Se queda corto para el resto del mundo.
+
+        UTF-8: Es el estándar moderno; es como un abecedario universal que incluye casi todos los caracteres de todos los idiomas, incluyendo emojis y símbolos complejos. Sin UTF-8, internet sería un caos de caracteres ilegibles.
+
+    SSL y TLS (Los guardaespaldas):
+
+        SSL (Secure Sockets Layer): Fue el primer estándar para cifrar conexiones. Ya es "viejo" y se considera inseguro.
+
+        TLS (Transport Layer Security): Es el sucesor moderno y robusto de SSL. Cuando ves el candadito verde en tu navegador (HTTPS), realmente estás usando TLS.
+
+
+# Handshake TLS (simplificado):
+Cliente: "¡Hola! Soporto TLS 1.3, aquí están mi conjunto de cifrado"
+Servidor: "¡Hola! Usemos TLS 1.3 con AES-256-GCM, aquí está mi certificado"
+Cliente: [Verifica el certificado]
+Ambos:   [Generan claves de sesión usando Diffie-Hellman]
+Ambos:   "¡Toda comunicación posterior está cifrada!"
+
+Que tipos de ataques ocurren en la capa 6? SSL Stripping
+-El atacante intercepta las redirecciones HTTP → HTTPS y mantiene la victima en HTTP mientras se conecta al servidor via HTTPS. 
+!La víctima cree que está segura pero el atacante ve todo en texto plano!
+
+Víctima → [HTTP] → Atacante → [HTTPS] → Servidor
+# La víctima ve http://cripto.com
+# El atacante ve todo el tráfico en texto plano
