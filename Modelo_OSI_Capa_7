@@ -33,14 +33,32 @@ Las aplicaciones de software cliente no forman parte de esta capa ; mas bien, la
 Tenemos protocolos comunes como: FTP,SMTP,SSH,DNS,HTTP y HTTPS
 
 
-| Protocolo | Función Principal | Puerto | Riesgo / Vector de Ataque |
-| :--- | :--- | :--- | :--- |
-| **FTP** | Transferencia de archivos | 20, 21 | Credenciales en texto plano, fuerza bruta, Login Anónimo. |
-| **SMTP** | Envío de correos | 25 | Open Relay (spam), enumeración de usuarios. |
-| **SSH** | Administración remota | 22 | Fuerza bruta, versiones obsoletas. |
-| **DNS** | Resolución de nombres | 53 | DNS Cache Poisoning, Transferencia de zonas (AXFR). |
-| **HTTP** | Web (no cifrada) | 80 | Sniffing, XSS, SQL Injection. |
-| **HTTPS** | Web (cifrada/SSL) | 443 | SSL Stripping, fallos en validación de certificados. |
+Protocolos de Capa 7 (Aplicación)
+
+    FTP (20/21) | Transferencia de Archivos
+
+        Riesgo: Credenciales en texto plano, ataques de fuerza bruta y Login Anónimo.
+
+    SMTP (25) | Envío de Correo
+
+        Riesgo: Open Relay (spam) y enumeración de usuarios válidos.
+
+    SSH (22) | Administración Remota
+
+        Riesgo: Fuerza bruta de credenciales y explotación de versiones obsoletas.
+
+    DNS (53) | Resolución de Nombres
+
+        Riesgo: DNS Cache Poisoning y transferencia de zonas (AXFR) que filtra infraestructura.
+
+    HTTP (80) | Web (no cifrada)
+
+        Riesgo: Interceptación de tráfico (sniffing), XSS y SQL Injection.
+
+    HTTPS (443) | Web (cifrada/SSL)
+
+        Riesgo: SSL Stripping y errores en la validación de certificados.
+
 
 Quieres saber por que los atacantes se enfocan en la Capa 7?
 
