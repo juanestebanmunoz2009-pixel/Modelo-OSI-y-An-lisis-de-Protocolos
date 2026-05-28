@@ -1,0 +1,50 @@
+El modelo OSI: 7 capas de red se componen por las siguentes.
+
+7.Application
+6.Presentation
+5.Session
+4.Transport
+3.Network
+2.Data link
+1.Physical
+
+El modelo OSI (Open System Interconnection) es un concepto muy importante en redes, ya que es un grupo de 7 capas, cada una tiene una responsabilidad especifica.
+
+La Metàfora del Servicio Postal
+
+Enviamos paquetes a todas partes del mundo. Cada capa añade algo para garantizar su entrega correctamente.
+
+7.Application: Escribes el mensaje que quieres enviar
+6.Presentation: Lo traduces al idioma del destinatario y lo cifras para mas seguridad si es necesario.
+5.Session: Estableces una correspondencia continua.
+4.Transport: Elijes su transporte si es rapido o normal (Fiable o rapido)
+3.Network: Escribes la ciudad/Pais de destino (Enrutamiento logico)
+2.Data link: La oficina postal lo envia al camion correcto (direccionamiento fisico)
+1.Physical: Los camiones,barcos,aviones usan sus rutas que transportan tu paquete (señales electricas/de radio)
+
+En el destino, cada "capa" se elimina en orden inverso hasta que se revela el mensaje original.
+
+Las 7 capas explicadas en profundidad.
+
+7.Application: Esta es la capa que interactua directamente con datos del usuario. las aplicaciones de sotfware, como los navegadores web y los clientes de correo electronico, depeden de la capa para iniciar nuevas comunicaciones.
+
+Las aplicaciones de software cliente no forman parte de esta capa ; mas bien, la capa de aplicacion es responsable de la manipulacion y protocolos de datos de los que depende el software.
+
+Tenemos protocolos comunes como: FTP,SMTP,SSH,DNS,HTTP y HTTPS
+
+FTP	Transferencia de archivos	  20, 21	Credenciales en texto plano, ataques de fuerza bruta y Login Anónimo.
+SMTP	Envío de correos electrónicos	  25	        Open Relay (envío de spam) y enumeración de usuarios válidos.
+SSH	Administración remota segura	  22	        Fuerza bruta de credenciales y búsqueda de vulnerabilidades en versiones obsoletas.
+DNS	Resolución de nombres de dominio  53	        DNS Cache Poisoning y transferencia de zonas (AXFR) que filtra toda la infraestructura.
+HTTP	Navegación web (no cifrada)	  80	        Interceptación de tráfico (sniffing), ataques XSS y SQL Injection.
+HTTPS	Navegación web (cifrada/SSL)	 443	        SSL Stripping (bajar a HTTP) y fallos en la validación de certificados.
+
+Quieres saber por que los atacantes se enfocan en la Capa 7?
+
+A diferencia de las capas inferiores, donde un atacante necesita una herramienta (como bettercap o arpspoof) la Capa de aplicacion es donde reside la logica de negocio. la mayoria de vulnerabilidades asi no son "Fallos de protocolo" sino "Fallos del programador" o mejor conocidos como Error Capa 8.
+Por ejemplo, al auditar (Empresa), no atacamos los protocolos HTTP en si mismo, sino que como la logica del backed procesaba las peticiones hacia el bucket, demostrando que incluso con protocolos seguros (HTTPS), si la logica es defectuosa el sistema es vulnerable.
+
+Resumen:
+La Capa 7 es la única donde el atacante y el desarrollador "hablan el mismo idioma" (código y lógica). Mientras que las capas 1 a 4 se encargan de la entrega, la Capa 7 se encarga del contenido. Por eso, en Bug Bounty, el 90% de los hallazgos críticos se encuentran aquí, no porque los protocolos sean débiles, sino porque la lógica de negocio es compleja y propensa a errores humanos.
+
+
